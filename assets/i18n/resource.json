@@ -1,0 +1,9 @@
+{
+  "smartling" : {
+      "translate_mode" : "all",
+      "placeholder_format_custom": ["\\{\\{.*?\\}\\}"],
+      "source_key_paths": ["/{*}/"]
+   },
+
+  "ExampleKey":"Example Key"
+}

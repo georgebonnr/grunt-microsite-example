@@ -1,0 +1,20 @@
+{
+  "name": "Microsite-example",
+  "author": {
+    "name": "Joseph McElroy",
+    "email": "jmcelroy@opentable.com"
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "readmeFilename": "README.md",
+  "version": "0.0.1",
+  "devDependencies": {
+    "common-grunt-site": "~0.0.1",
+    "grunt": "~0.4.3"
+  }
+}
