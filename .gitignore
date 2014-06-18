@@ -1,4 +1,6 @@
 dist
 assets/bower_components
 node_modules
+coverage
+assets/.sass-cache
 

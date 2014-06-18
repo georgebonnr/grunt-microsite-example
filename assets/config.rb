@@ -8,10 +8,10 @@ project_path = File.dirname(__FILE__)
 # Set up internal project dirs & paths
 #
 http_path = "/"
-http_images_path = "../assets/images"
+http_images_path = "./images"
 http_generated_images_path = http_images_path
 
-css_dir = (compiletype == :production) ? "release-dist/" : "dist/"
+css_dir = (compiletype == :production) ? "../release-dist/" : "../dist/"
 sass_dir = "styles/"
 images_dir = "images/"
 
@@ -21,7 +21,7 @@ bower_components_dir = "bower_components/"
 otcore_dir = "compass-otcore/"
 
 # additional imports
-additional_import_paths = [bower_components_dir + otcore_dir + 'stylesheets', bower_components_dir + ionic_dir + 'scss']
+additional_import_paths = [bower_components_dir + otcore_dir + 'stylesheets']
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed

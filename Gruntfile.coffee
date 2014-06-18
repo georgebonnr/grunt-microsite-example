@@ -4,10 +4,26 @@ module.exports = (grunt) ->
 
   Utils.loadNpmTasks()
 
-  vendorScripts = [
-    "assets/bower_components/angular/angular.js"
-    "assets/bower_components/underscore/underscore.js"
-  ]
+  grunt.config "MicrositeConfig", {
 
-  Utils.loadBuilder "coffeescript-app", __dirname
-  Utils.loadBuilder "vendor-scripts", __dirname, vendorScripts
+    vendorScripts: [
+      "assets/bower_components/angular/angular.js"
+      "assets/bower_components/underscore/underscore.js"
+    ]
+
+    vendorSass: [
+      "assets/bower_components/ot-core"
+    ]
+
+    locales: [
+      "de-de"
+      "en-us"
+      "en-gb"
+      "es-mx"
+      "fr-ca"
+      "ja-jp"
+    ]
+
+  }
+
+  Utils.loadTasks(__dirname)
