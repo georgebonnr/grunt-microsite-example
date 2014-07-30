@@ -1,29 +1,45 @@
 module.exports = (grunt) ->
+  commonGrunt = require("./GuestCenterCommonGrunt")(grunt)
 
-  Utils = require("common-grunt-site/builders/Utils")(grunt)
 
-  Utils.loadNpmTasks()
 
-  grunt.config "MicrositeConfig", {
+  # Setup before load
+  requiredConfig = 
+    "rootDir" : __dirname
 
-    vendorScripts: [
+    "smartling" :
+      "apiKey" : "xxx"
+      "projectId" : "xxx"
+
+    "vendorScripts": [
       "assets/bower_components/angular/angular.js"
       "assets/bower_components/underscore/underscore.js"
     ]
 
-    vendorSass: [
-      "assets/bower_components/ot-core"
-    ]
 
-    locales: [
-      "de-de"
-      "en-us"
-      "en-gb"
-      "es-mx"
-      "fr-ca"
-      "ja-jp"
-    ]
 
-  }
+  # load
+  commonGrunt.loadTasks(grunt, requiredConfig)
 
-  Utils.loadTasks(__dirname)
+
+
+  # extend/overwrite properties of configs
+  # commonGrunt.extendConfig
+  #   "html2js.app" :
+  #     src: ["#{__dirname}/app/src/component/partials/foo.html"]
+
+
+
+  # Overwrite commonGrunt tasks and configs directly
+  # grunt.registerTask "dev", [
+  # ]
+  # 
+  # grunt.config "karma.unit-tests", {}
+
+
+
+  # Add other site-specific tasks and configs if needed
+  # grunt.registerTask "siteTask", [
+  # ]
+  # 
+  # grunt.config "siteConfig", {}
