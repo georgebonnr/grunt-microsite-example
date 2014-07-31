@@ -14,7 +14,6 @@
   "readmeFilename": "README.md",
   "version": "0.0.1",
   "devDependencies": {
-    "common-grunt-site": "~0.0.1",
     "grunt": "~0.4.3"
   }
 }

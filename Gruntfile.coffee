@@ -1,41 +1,33 @@
 module.exports = (grunt) ->
-  commonGrunt = require("./GuestCenterCommonGrunt")(grunt)
+  commonGrunt = require("./node_modules/GuestCenterCommonGrunt")(grunt, __dirname)
 
+  # load
+  commonGrunt.loadTask "coffeescript-app"
 
-
-  # Setup before load
-  requiredConfig = 
-    "rootDir" : __dirname
-
-    "smartling" :
-      "apiKey" : "xxx"
-      "projectId" : "xxx"
-
-    "vendorScripts": [
+  commonGrunt.loadTask "connect"
+  
+  commonGrunt.loadTask "sass"
+  
+  commonGrunt.loadTask "test-unit"
+  
+  commonGrunt.loadTask "vendor-scripts",
+    files: [
       "assets/bower_components/angular/angular.js"
       "assets/bower_components/underscore/underscore.js"
     ]
 
+  # Load dev task (after builders)
+  commonGrunt.loadDevTask()
 
 
-  # load
-  commonGrunt.loadTasks(grunt, requiredConfig)
-
-
-
-  # extend/overwrite properties of configs
-  # commonGrunt.extendConfig
-  #   "html2js.app" :
-  #     src: ["#{__dirname}/app/src/component/partials/foo.html"]
-
-
-
-  # Overwrite commonGrunt tasks and configs directly
-  # grunt.registerTask "dev", [
-  # ]
-  # 
-  # grunt.config "karma.unit-tests", {}
-
+  # Optionally override config object
+  # grunt.config "html2js.app", {
+  #   src: ["#{__dirname}/app/src/component/partials/foo.html"]
+  #   dest: "#{__dirname}/dist/templates_dev.js"
+  #   options:
+  #     base: "#{__dirname}/app/src"
+  #     module:"templates-client"
+  # }
 
 
   # Add other site-specific tasks and configs if needed
